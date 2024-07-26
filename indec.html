@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why is today a special day?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f0f8ff;
+            overflow: hidden;
+        }
+        h1 {
+            color: #333;
+        }
+        #message {
+            margin-top: 20px;
+            display: none;
+        }
+        #message p {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 20px;
+        }
+        #message img {
+            width: 300px;
+            height: auto;
+            margin-top: 20px;
+        }
+        .flower {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: pink;
+            border-radius: 50%;
+            animation: fall 2s infinite;
+        }
+        @keyframes fall {
+            0% {
+                top: -10px;
+                opacity: 1;
+                transform: translateX(0);
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+                transform: translateX(calc(-50% + 10px));
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Why was today a special day ?</h1>
+    <button onclick="showMessage()" style="background-color:blue;color:white;">Know it</button>
+    <div id="message">
+        <p>It's the 25th Kargil Vijay Diwas today. Time to remember our brave heroes who lost their life for the nation.</p>
+        <img src="kargilvijay.webp" alt="Kargil Vijay Diwas">
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+            createFlowerShower();
+        }
+
+        function createFlowerShower() {
+            const numberOfFlowers = 100;
+            for (let i = 0; i < numberOfFlowers; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.style.left = `${Math.random() * 100}vw`;
+                flower.style.animationDuration = `${Math.random() * 2 + 2}s`;
+                flower.style.animationDelay = `${Math.random() * 2}s`;
+                flower.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                document.body.appendChild(flower);
+
+                flower.addEventListener('animationiteration', () => {
+                    flower.remove();
+                });
+            }
+        }
+    </script>
+</body>
+</html>
