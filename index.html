@@ -12,9 +12,21 @@
             background-color: #f0f8ff;
             overflow: hidden;
             background: url('kargil_bg.webp') no-repeat center center fixed;
+            background-size: cover;
+            position: relative; /* Required for the pseudo-element to be positioned correctly */
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Opacity level for the background overlay */
+            z-index: -1;
         }
         h1 {
-            color: #333;
+            color: #fff; /* Adjust color for better contrast */
         }
         #message {
             margin-top: 20px;
@@ -22,13 +34,17 @@
         }
         #message p {
             font-size: 1.2em;
-            color: #333;
+            color: #fff; /* Adjust color for better contrast */
             margin-top: 20px;
         }
-        #message img {
-            width: 300px;
-            height: auto;
-            margin-top: 20px;
+        #message img.effect {
+            height: 250px;
+            width: 500px;
+            transition: all 0.3s ease-in-out; /* Smooth transition */
+        }
+        #message img.effect:hover {
+            width: 700px;
+            height: 400px;
         }
         .flower {
             position: absolute;
@@ -38,17 +54,6 @@
             border-radius: 50%;
             animation: fall 2s infinite;
         }
-        .effect {
-            height: 250px;
-            width: 500px;
-            transition: all 0.3s ease-in-out; /* Smooth transition */
-        }
-        
-        .effect:hover {
-            width: 700px;
-            height: 400px;
-        }
-
         @keyframes fall {
             0% {
                 top: -10px;
@@ -64,11 +69,11 @@
     </style>
 </head>
 <body>
-    <h1>Why was today a special day ?</h1>
+    <h1>Why is today a special day?</h1>
     <button onclick="showMessage()" style="background-color:blue;color:white;">Know it</button>
     <div id="message">
         <p>It's the 25th Kargil Vijay Diwas today. Time to remember our brave heroes who lost their life for the nation.</p>
-       <img class="effect" src="kargilvijay.webp" alt="Kargil Vijay Diwas">
+        <img class="effect" src="kargilvijay.webp" alt="Kargil Vijay Diwas">
     </div>
 
     <script>
