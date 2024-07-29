@@ -77,12 +77,17 @@
     </div>
 
     <script>
+        let hasClicked = false;
+
         function showMessage() {
-            document.getElementById('message').style.display = 'block';
-            createFlowerShower();
-            const button = document.getElementById('actionButton');
-            button.textContent = 'Celebrate';
-            button.setAttribute('onclick', 'celebrate()');
+            if (!hasClicked) {
+                document.getElementById('message').style.display = 'block';
+                createFlowerShower();
+                const button = document.getElementById('actionButton');
+                button.textContent = 'Celebrate';
+                button.setAttribute('onclick', 'celebrate()');
+                hasClicked = true;
+            }
         }
 
         function celebrate() {
