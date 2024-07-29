@@ -70,7 +70,7 @@
 </head>
 <body>
     <h1>Why is today a special day?</h1>
-    <button onclick="showMessage()" style="background-color:blue;color:white;">Know it</button>
+    <button id="actionButton" onclick="showMessage()" style="background-color:blue;color:white;">Know it</button>
     <div id="message">
         <p>It's the 25th Kargil Vijay Diwas today. Time to remember our brave heroes who lost their life for the nation.</p>
         <img class="effect" src="kargilvijay.webp" alt="Kargil Vijay Diwas">
@@ -80,6 +80,22 @@
         function showMessage() {
             document.getElementById('message').style.display = 'block';
             createFlowerShower();
+            const button = document.getElementById('actionButton');
+            button.textContent = 'Celebrate';
+            button.setAttribute('onclick', 'celebrate()');
+        }
+
+        function celebrate() {
+            const button = document.getElementById('actionButton');
+            button.textContent = 'Honor';
+            button.setAttribute('onclick', 'honor()');
+            // Add additional content or actions related to celebration here
+        }
+
+        function honor() {
+            // Add content or actions related to honoring here
+            alert('Honoring our heroes with respect and pride!');
+            // You can also add more functionality or content related to honoring here
         }
 
         function createFlowerShower() {
