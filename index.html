@@ -65,15 +65,21 @@
                 opacity: 0;
                 transform: translateX(calc(-50% + 10px));
             }
+            .flex-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="flex-container">
     <h1>Why is today a special day?</h1>
     <button id="actionButton" onclick="showMessage()" style="background-color:blue;color:white;">Know it</button>
     <div id="message">
         <p>It's the 25th Kargil Vijay Diwas today. Time to remember our brave heroes who lost their life for the nation.</p>
         <img class="effect" src="kargilvijay.webp" alt="Kargil Vijay Diwas">
+    </div>
     </div>
 
     <script>
